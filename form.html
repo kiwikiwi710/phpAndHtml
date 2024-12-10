@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>資料表單</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: rgb(92, 144, 43);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="post.php" method="POST" enctype="multipart/form-data">
+        <h2>資料收集</h2>
+        
+        <!-- Text Input -->
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="user" required>
+        
+        <!-- Email Input -->
+        <label for="email">電子郵件:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <!-- Radio Button for Gender -->
+        <label>性別:</label>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="sex" value="1" required> 男 (Male)
+            </label>
+            <label>
+                <input type="radio" name="sex" value="2" required> 女 (Female)
+            </label>
+        </div>
+        
+        <!-- Checkbox for Skills -->
+        <label>專長 :</label>
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="wt[]" value="HTML"> HTML
+            </label>
+            <label>
+                <input type="checkbox" name="wt[]" value="CSS"> CSS
+            </label>
+            <label>
+                <input type="checkbox" name="wt[]" value="JavaScript"> JavaScript
+            </label>
+            <label>
+                <input type="checkbox" name="wt[]" value="PHP"> PHP
+            </label>
+        </div>
+        
+        <!-- Select Dropdown for Age -->
+        <label for="age">年齡:</label>
+        <select id="age" name="age">
+            <option value="">請選擇 </option>
+            <option value="under18">未滿18歲 </option>
+            <option value="18-25">18-25</option>
+            <option value="26-35">26-35</option>
+            <option value="36-45">36-45</option>
+            <option value="over45">45歲以上 </option>
+        </select>
+        
+        <!-- File Upload -->
+        <label for="profile-pic">個人照片:</label>
+        <input type="file" id="profile-pic" name="profile_pic" accept="image/jpeg,image/png,image/gif,image/bmp">
+        
+        <!-- Submit Button -->
+        <br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
